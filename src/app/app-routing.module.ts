@@ -2,17 +2,19 @@ import { NgModule, Injectable } from '@angular/core';
 import { Routes, RouterModule, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { LoginComponent } from "./login/login.component";
 import { AdminComponent } from "./admin/admin.component";
+import { DashboardComponent } from "./admin/dashboard/dashboard.component";
 import { Observable } from "rxjs";
 class UserToken {
   token = null;
-  constructor(){
+  constructor() {
     this.token = localStorage.getItem("X-TOKEN");
   }
- }
+}
 
 class Permissions {
   canActivate(user: UserToken, id: string): boolean {
-    if(user.token === null)
+    console.log("check Permissions")
+    if (user.token === null)
       return false;
     return true;
   }
@@ -32,9 +34,9 @@ class CanActivateTeam implements CanActivate {
 
 const routes: Routes = [
   {
-    path:"",
-    pathMatch:"full",
-    redirectTo:"login"
+    path: "",
+    pathMatch: "full",
+    redirectTo: "login"
   },
   {
     path: "login",
@@ -43,7 +45,13 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminComponent,
-    canActivate: [CanActivateTeam]
+    canActivate: [CanActivateTeam],
+    children: [
+      {
+        path: "dashboard",
+        component:DashboardComponent
+      }
+    ]
   }
 ];
 
