@@ -1,0 +1,20 @@
+<div class="container">
+  <mat-card class="form">
+      <mat-card-title>登陆</mat-card-title>
+      <p>
+          <mat-form-field appearance="outline" class="form-item">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Lings" [(ngModel)]="username" name="username" />
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline" class="form-item">
+            <mat-label>Password</mat-label>
+            <input (ng-keypress)="($event.which === 13)?login():0" type="password" matInput placeholder="***" [(ngModel)]="password" name="password" />
+          </mat-form-field>
+        </p>
+        <p>
+          <button mat-button (click)="login()" class="form-item">Login</button>
+        </p>
+      </mat-card>
+</div>
