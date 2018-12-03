@@ -16,17 +16,24 @@ import {
   MatIconModule,
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatToolbarModule
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { HeaderComponent } from './admin/header/header.component';
+import { MenuComponent } from './admin/header/menu/menu.component';
+import { WorkingTableComponent } from './admin/working-table/working-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AdminComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeaderComponent,
+    MenuComponent,
+    WorkingTableComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,8 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
     MatButtonModule,
     LayoutModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule
   ],
   providers: [MatSnackBar],
   bootstrap: [AppComponent]

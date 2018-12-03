@@ -25,9 +25,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.userService.login(this.username, this.password)
-      .then((message) => {
-        message === undefined ? this.router.navigateByUrl("admin") :
-        alert(message)
-      });
+      .then(() => this.router.navigateByUrl("admin"))
+      .catch(message=>alert(message));
   }
 }

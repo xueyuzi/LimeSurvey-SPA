@@ -3,6 +3,7 @@ import { Routes, RouterModule, CanActivate, ActivatedRouteSnapshot, RouterStateS
 import { LoginComponent } from "./login/login.component";
 import { AdminComponent } from "./admin/admin.component";
 import { DashboardComponent } from "./admin/dashboard/dashboard.component";
+import {WorkingTableComponent} from "./admin/working-table/working-table.component";
 import { Observable } from "rxjs";
 class UserToken {
   token = null;
@@ -50,6 +51,10 @@ const routes: Routes = [
       {
         path: "dashboard",
         component:DashboardComponent
+      },
+      {
+        path:"working",
+        component:WorkingTableComponent
       }
     ]
   }
