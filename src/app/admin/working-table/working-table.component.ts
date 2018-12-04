@@ -1,33 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , } from '@angular/core';
 import * as d3 from "d3";
 import { ApiService } from "../../api.service";
+import { WorkingTableService } from "./working-table.service";
 @Component({
   selector: 'app-working-table',
   templateUrl: './working-table.component.html',
   styleUrls: ['./working-table.component.scss']
 })
 export class WorkingTableComponent implements OnInit {
-
-  constructor(public api: ApiService) { }
+  constructor(
+    public api: ApiService,
+    public wService: WorkingTableService,
+  ) { }
   surveys: Array<any>;
   ngOnInit() {
-    this.api.list_surveys()
-      .then(result => {
-        this.surveys = result
-      })
-      .then(() => {
-        d3.select("svg")
-          .selectAll("g")
-          .data(this.surveys.map(survey => survey.surveyls_title))
-          .enter()
-          .append("g")
-      })
+    this.wService.setMainCanvas(d3.select("svg"))
+  }
 
-    // d3.select("svg")
-    //   .selectAll("g")
-    //   .data([4, 8, 15, 16, 23, 42])
-    //   .enter()
-    //   .append("g")
+  addNode(){
+    this.wService.addNode();
   }
 
 }

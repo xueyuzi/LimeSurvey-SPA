@@ -23,7 +23,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { HeaderComponent } from './admin/header/header.component';
 import { MenuComponent } from './admin/header/menu/menu.component';
-import { WorkingTableComponent } from './admin/working-table/working-table.component';
+import { WorkingTableModule } from './admin/working-table/working-table.module';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +34,6 @@ import { WorkingTableComponent } from './admin/working-table/working-table.compo
     DashboardComponent,
     HeaderComponent,
     MenuComponent,
-    WorkingTableComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +49,8 @@ import { WorkingTableComponent } from './admin/working-table/working-table.compo
     LayoutModule,
     MatFormFieldModule,
     MatInputModule,
-    MatToolbarModule
+    MatToolbarModule,
+    WorkingTableModule
   ],
   providers: [MatSnackBar],
   bootstrap: [AppComponent]
