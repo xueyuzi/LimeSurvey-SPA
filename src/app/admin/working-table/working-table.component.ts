@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from "d3";
 import { ApiService } from "../../api.service";
+import {WorkingTableService} from "./working-table.service";
 @Component({
   selector: 'app-working-table',
   templateUrl: './working-table.component.html',
@@ -8,9 +9,13 @@ import { ApiService } from "../../api.service";
 })
 export class WorkingTableComponent implements OnInit {
 
-  constructor(public api: ApiService) { }
+  constructor(
+    public api: ApiService,
+    public workingTableService:WorkingTableService
+  ) { }
   surveys: Array<any>;
   ngOnInit() {
+    this.workingTableService.setCanvas(d3.select("svg"));
     this.api.list_surveys()
       .then(result => {
         this.surveys = result
@@ -22,12 +27,6 @@ export class WorkingTableComponent implements OnInit {
           .enter()
           .append("g")
       })
-
-    // d3.select("svg")
-    //   .selectAll("g")
-    //   .data([4, 8, 15, 16, 23, 42])
-    //   .enter()
-    //   .append("g")
   }
 
 }
