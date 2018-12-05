@@ -1,1 +1,11 @@
-<svg:g id="survey-{{index}}"></svg:g>
+
+<svg:g class="node" #node 
+(mousedown)="mousedown()" 
+(mouseup)="mouseup()"
+[attr.transform]="rect.transform">
+    <svg:rect [attr.width]="rect.width" [attr.height]="rect.height" rx="20" ry="20" class="rect"></svg:rect>
+    <svg:g>
+        
+        <svg:text y="25" x="20" class="text">{{title}}</svg:text>
+    </svg:g>
+</svg:g>

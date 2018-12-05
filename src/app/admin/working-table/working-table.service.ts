@@ -16,4 +16,6 @@ export class WorkingTableService {
   addNode(){
     this.MainCanvas.append("g")
   }
+
+  
 }
