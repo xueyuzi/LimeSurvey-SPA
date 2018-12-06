@@ -2,10 +2,14 @@
 <svg:g class="node" #node 
 (mousedown)="mousedown()" 
 (mouseup)="mouseup()"
-[attr.transform]="rect.transform">
-    <svg:rect [attr.width]="rect.width" [attr.height]="rect.height" rx="20" ry="20" class="rect"></svg:rect>
+[attr.transform]="transform"
+>
+    <svg:rect width="200" height="100" rx="20" ry="20" class="rect" #vc></svg:rect>
     <svg:g>
-        
-        <svg:text y="25" x="20" class="text">{{title}}</svg:text>
+        <svg:g>
+           <svg:text y="25" x="20" class="text">{{title}}</svg:text>
+           <rect (click)="$event.stopPropagation();addContext()" class="svg-button" fill="white" width="24" height="24" y="4" rx="2" ry="2" x="172"></rect>
+        </svg:g>
+        <ng-template #vc></ng-template>
     </svg:g>
 </svg:g>

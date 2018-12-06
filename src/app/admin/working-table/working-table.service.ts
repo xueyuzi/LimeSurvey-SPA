@@ -5,16 +5,12 @@ import { Selection, BaseType } from "d3"
   providedIn: 'root'
 })
 export class WorkingTableService {
-  // 用于组合各组件到画布上
-  private MainCanvas: Selection<BaseType, {}, HTMLElement, any>;
 
   constructor() { }
-  setMainCanvas(selection: Selection<BaseType, {}, HTMLElement, any>) {
-    this.MainCanvas = selection;
-  }
+  public nodeCount:number = 0;
 
   addNode(){
-    this.MainCanvas.append("g")
+    this.nodeCount++;
   }
 
   

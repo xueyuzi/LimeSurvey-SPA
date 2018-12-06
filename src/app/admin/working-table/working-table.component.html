@@ -1,4 +1,9 @@
 
-<svg class="working-table">
-    <svg:g working-node></svg:g>
+<svg class="working-table" >
+    <!-- <svg:g working-node></svg:g> -->
+    <ng-container #vc></ng-container>
+    <svg:g (click)="addNode()"class="svg-button" >
+        <svg:rect x="0" y ="0" height="50" width="100" rx="20" ry="20"></svg:rect>
+        <svg:text x="15" y="30" fill="white" class="text">生成Node</svg:text>
+    </svg:g>
 </svg>
